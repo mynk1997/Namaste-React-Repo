@@ -1,0 +1,28 @@
+{
+  "name": "namaste-react-repo",
+  "version": "1.0.0",
+  "description": "This is Namaste React by Mayank Gupta",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mynk1997/Namaste-React-Repo.git"
+  },
+  "author": "Mayank Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mynk1997/Namaste-React-Repo/issues"
+  },
+  "homepage": "https://github.com/mynk1997/Namaste-React-Repo#readme",
+  "devDependencies": {
+    "parcel": "^2.9.1",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserlist": ["last 2 chrome versions"]
+}
