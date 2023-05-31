@@ -2,8 +2,10 @@
   "name": "namaste-react-repo",
   "version": "1.0.0",
   "description": "This is Namaste React by Mayank Gupta",
-  "main": "App.js",
+  
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "repository": {
