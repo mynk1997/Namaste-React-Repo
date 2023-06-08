@@ -1,18 +1,88 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-const Title =()=>{
-    return <h1 id="heading">This is our Title component</h1>
+function getdata(){
+        
 }
-const Heading= () =>{
-    return <><></> <h1 id="heading">Namaste React🚀</h1>
-    <Title/> 
+
+const Header = () => {
+  return (
+    <div className="header">
+      <div className="logo">
+        <img
+          src="https://images.designtrends.com/wp-content/uploads/2016/03/28110718/Restaurant-Logo-Design.jpg"
+          alt="logo"
+        />
+      </div>
+      <div className="nav">
+        <ul>
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+const RestaurantCard=()=>{
+    return(
+        <>
+        <div className="res-card">
+            <img src="food.jpg" alt="logo"/>
+            <h3>Name</h3>
+            <p>Rating</p>
+            <p>Cusine</p>
+        </div>
+        </>
+    )
+}
+//When you want to pass dynamic data to a component pass it as a prop.
+const RestaurantContainer = ()=>{
+  return(
+    <div className="res-container">
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    <RestaurantCard/>
+    </div>
+  )
+}
+const Body = () => {
+    return(
+        <>
+        <div className="main-container">
+        <div className="search-container">
+            <input type="text" className="search-box"></input>
+            <button className="search-button">Search</button>
+        </div>
+        <RestaurantContainer/>
+        </div>
+        </>
+    )
+}
+
+const App = () => {
+  return (
+    <>
+      <Header />
+      <Body/>
     </>
-} 
+  );
+};
 
-console.log(Heading); //React Element is an object and its attributes are props.
-const root=ReactDOM.createRoot(document.getElementById("root"));
-const root2=ReactDOM.createRoot(document.getElementById("root2"));
-
-root.render(<Heading/>);  
-root2.render(<Heading/>);  
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
