@@ -1,7 +1,4 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const resList = [
+export const resList = [
     {
       type: "restaurant",
       data: {
@@ -732,78 +729,3 @@ const resList = [
       subtype: "basic",
     },
   ];
-
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo">
-        <img
-          src="https://images.designtrends.com/wp-content/uploads/2016/03/28110718/Restaurant-Logo-Design.jpg"
-          alt="logo"
-        />
-      </div>
-      <div className="nav">
-        <ul>
-          <li>
-            <a href="#">Home</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-const RestaurantCard=({name,cuisines,avgRating,costForTwoString,deliveryTime,cloudinaryImageId})=>{
-    return(
-        <>
-        <div className="res-card">
-            <img src={"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/"+ cloudinaryImageId} alt="logo"/>
-            <h3>{name}</h3>
-            <p>{cuisines?.join(", ")}</p>
-            <p>{avgRating}</p>
-            <p>{costForTwoString}</p>
-            <p>{deliveryTime} mins</p> 
-        </div>
-        </>
-    )
-}
-//When you want to pass dynamic data to a component pass it as a prop.
-const RestaurantContainer = ()=>{
-  return(
-    <div className="res-container">
-        {resList.map((res) =>{
-            return <RestaurantCard {...res.data} key={res?.data?.id}/>
-        })}
-    </div>
-  )
-}
-const Body = () => {
-    return(
-        <>
-        <div className="main-container">
-        <div className="search-container">
-            <input type="text" className="search-box"></input>
-            <button className="search-button">Search</button>
-        </div>
-        <RestaurantContainer/>
-        </div>
-        </>
-    )
-}
-
-const App = () => {
-  return (
-    <>
-      <Header />
-      <Body/>
-    </>
-  );
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
