@@ -1,11 +1,25 @@
-import { resList } from "../utils/mockData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RestaurantCard from "./RestaurantCard";
+import { API_URL } from "../utils/constants";
+import Shimmer from "./Shimmer";
 
 const Body = () => {
-    const [restaurantList, setRestaurantList]= useState(resList );
+    const [restaurantList, setRestaurantList]= useState([]);
     console.log(restaurantList)
-    return(
+
+    useEffect(()=>{
+        fetchData();
+    },[])
+
+    const fetchData=async()=>{
+        const data=await fetch(API_URL);
+        const json=await data.json();
+        setRestaurantList(json?.data?.cards[2].data?.data?.cards);
+    };
+    if(restaurantList.length===0){
+        return <Shimmer/>
+    }
+     return(
         <>
         <div className="main-container">
         <div className="search-container">
