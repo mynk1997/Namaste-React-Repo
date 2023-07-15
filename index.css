@@ -53,3 +53,6 @@
     display: flex;
     flex-wrap: wrap;
 }
+.user-cards{
+    border: black solid 2px;
+}
