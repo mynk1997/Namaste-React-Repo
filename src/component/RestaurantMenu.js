@@ -16,9 +16,9 @@ const RestaurantMenu = () => {
     const { itemCards } =
         resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card;
     return (
-        <div>
-            <h1>{name}</h1>
-            <p>{cuisines.join(", ")}-{costForTwoMessage}</p>
+        <div className="text-center">
+            <h1 className="font-bold my-6 text-2xl">{name}</h1>
+            <p className="font-bold text-lg">{cuisines.join(", ")}-{costForTwoMessage}</p>
             <h2>Menu</h2>
             <ul>
                 {itemCards.map(item => { return <li key={item?.card?.info?.id}>{item?.card?.info?.name}- {" Rs."}{item?.card?.info?.price / 100 || item?.card?.info?.defaultPrice / 100}</li> })}
