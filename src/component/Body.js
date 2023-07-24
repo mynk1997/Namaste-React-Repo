@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, { withPromotedLabel } from "./RestaurantCard";
 import { API_URL } from "../utils/constants";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -9,7 +9,7 @@ const Body = () => {
     const [restaurantList, setRestaurantList] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
-
+    const RestaurantCardWithLabel =withPromotedLabel(RestaurantCard);
     console.log(restaurantList)
 
     useEffect(() => {
@@ -21,6 +21,8 @@ const Body = () => {
         const json = await data.json();
         setRestaurantList(json?.data?.cards[2].data?.data?.cards);
         setFilteredRestaurants(json?.data?.cards[2].data?.data?.cards);
+        console.log("Filtered Res")
+        console.log( filteredRestaurants);
 
     };
     const status=useShowOnline();
@@ -43,9 +45,11 @@ const Body = () => {
                         setFilteredRestaurants(filteredList)
                     }}>Top Rated</button>
                 </div>
-                <div className="res-container flex flex-wrap">
+                <div className="flex flex-wrap">
                     {filteredRestaurants.map((res) => {
-                        return <Link to={"/restaurant/"+res.data.id}  key={res?.data?.id} ><RestaurantCard {...res.data}/></Link>;
+                        return <Link to={"/restaurant/"+res?.data?.id}  key={res?.data?.id} >
+                            {res?.data?.promoted ? (<RestaurantCardWithLabel {...res.data}/>) :(<RestaurantCard {...res.data}/>)}
+                            </Link>;
                     })}
                 </div>
             </div>
