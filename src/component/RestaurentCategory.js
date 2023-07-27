@@ -2,6 +2,7 @@ import { useState } from "react";
 import ItemList from "./ItemList";
 
 const RestaurentCategory = ({ data, showItems, setShowIndex }) => {
+
   const clickHandler = () => {
     setShowIndex();
   };
